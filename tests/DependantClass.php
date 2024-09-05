@@ -5,13 +5,13 @@ namespace ServiceContainer\Tests;
 class DependantClass
 {
 
-    public function __construct(private DependancyClass $dependancy)
+    public function __construct(private DependencyClass $dependency)
     {
 
     }
 
-    public function getDependancy()
+    public function getDependency(): DependencyClass
     {
-        return $this->dependancy;
+        return $this->dependency;
     }
 }

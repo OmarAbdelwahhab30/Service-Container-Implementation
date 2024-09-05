@@ -2,7 +2,7 @@
 
 namespace ServiceContainer\Tests;
 
-class DependancyClass
+class SubDependencyClass
 {
 
 }

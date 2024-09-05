@@ -17,14 +17,11 @@ class ContainerTest extends TestCase
      */
     public function test_service_can_be_retrieved_from_the_container()
     {
-
         $container = new Container();
 
         $container->add("dependant-class", DependantClass::class);
 
-
         $this->assertInstanceOf(DependantClass::class, $container->get("dependant-class"));
-
     }
 
     public function test_exceptions_work_when_service_cannot_be_found()
@@ -48,5 +45,22 @@ class ContainerTest extends TestCase
 
         $this->assertFalse($container->has("non-existing-class"));
 
+    }
+
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     * @throws ContainerExceptions
+     */
+    public function test_dependency_between_two_classes_is_working()
+    {
+        $container = new Container();
+
+        $dependantService = $container->get(DependantClass::class);
+
+        $dependencyService = $dependantService->getDependency();
+
+        $this->assertInstanceOf(DependencyClass::class, $dependencyService);
+        $this->assertInstanceOf(SubDependencyClass::class, $dependencyService->getSubDependency());
     }
 }
