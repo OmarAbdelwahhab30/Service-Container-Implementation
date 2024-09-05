@@ -1,0 +1,28 @@
+{
+  "description": "This service container package offers a robust dependency injection system, enabling seamless management of service dependencies with support for autowiring, simplifying the instantiation and configuration of services automatically.",
+  "minimum-stability": "dev",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Omar Abdulwahhab",
+      "email": "omarabdelwahhabkishk2000@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "ServiceContainer\\Implementation\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ServiceContainer\\Tests\\": "tests"
+    }
+  },
+  "require-dev": {
+    "symfony/var-dumper": "6.3.x-dev",
+    "phpunit/phpunit": "^11.4@dev"
+  },
+  "require": {
+    "psr/container": "2.0.x-dev"
+  }
+}
